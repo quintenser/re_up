@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				position: fixed;
+				background: rgba(255,255,255, 1);
+			}
+			canvas { width: 100%; height: 100%; outline: none; }
+			#container { width: 100%; height: 100%; position: relative; }
+			.lds-hourglass {
+				width: auto;
+				min-height: auto;
+				padding: 5px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				
+				/* position the div in center */
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%); 
+			}
+			.lds-hourglass:after {
+			content: " ";
+			display: block;
+			border-radius: 50%;
+			width: 0;
+			height: 0;
+			margin: 8px;
+			box-sizing: border-box;
+			border: 32px solid rgb(0, 0, 0);
+			border-color: rgb(144, 144, 144) transparent rgb(144,144,144) transparent;
+			animation: lds-hourglass 1.2s infinite;
+			}
+			@keyframes lds-hourglass {
+			0% {
+				transform: rotate(0);
+				animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+			}
+			50% {
+				transform: rotate(900deg);
+				animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+			}
+			100% {
+				transform: rotate(1800deg);
+			}
+			}
+
+			#loadingBar {
+				transition: width 2s ease;
+			}
+
+			#loadCopy {
+				width: auto;
+				min-height: auto;
+				padding: 5px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				
+				/* position the div in center */
+				position: absolute;
+				top: 55%;
+				left: 50%;
+				transform: translate(-50%, -50%); 
+				font-family: 'Courier New', Courier, monospace;
+				color: rgb(144, 144, 144);
+				text-align: center;
+				font-size: medium;
+			}
+		</style>
+		<title>Welcome - Copy</title>
+		
+	</head>
+	<body>
+		<div id="loader" class="lds-hourglass"></div>
+		<hr id="loadingBar" size="5" width="0%" color="0x8977710">
+		<h1 id="loadCopy">quinten.gay is aan het laden, dit duurt niet lang meer!</h1>
+		<div id='container'>
+			<canvas id="canvas3d"></canvas>
+		</div>
+		<script type="module">
+			let barProgress = 0
+			function updateBar() {
+				if (barProgress != 100) {
+				barProgress += 25;
+				document.getElementById("loadingBar").setAttribute("width", barProgress +"%")
+				console.log(barProgress)
+				}
+				else {
+					document.getElementById("loadingBar").remove();					
+				}
+			}
+			import { Application } from './runtime.js';
+			setTimeout(updateBar, 10)
+			const canvas = document.getElementById('canvas3d');
+			setTimeout(updateBar, 10)
+			const app = new Application(canvas);
+			setTimeout(updateBar, 10)
+			await app.load('./scene.spline');
+			setTimeout(updateBar, 10)
+			document.getElementById("loader").remove();
+			setTimeout(updateBar, 10)
+		</script>
+	</body>
+</html>

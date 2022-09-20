@@ -1,0 +1,160 @@
+@font-face {
+  font-family: Futura;
+  src: url("Futura.ttc") format("TrueType");
+}
+
+:root {
+  --buttonColor: none;;
+}
+
+.grid {
+    height: 75vh;
+    display: grid;
+    place-items: center;
+    margin: 20px;
+}
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
+
+.titleText {
+    font-size: 750%;
+}
+
+#holding {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    margin: 0;
+  }
+
+  @-webkit-keyframes Rainbow {
+    0% {
+      background-position: 82% 0%
+    }
+
+    50% {
+      background-position: 19% 100%
+    }
+
+    100% {
+      background-position: 82% 0%
+    }
+  }
+
+  @-moz-keyframes Rainbow {
+    0% {
+      background-position: 82% 0%
+    }
+
+    50% {
+      background-position: 19% 100%
+    }
+
+    100% {
+      background-position: 82% 0%
+    }
+  }
+
+  @keyframes Rainbow {
+    0% {
+      background-position: 82% 0%
+    }
+
+    50% {
+      background-position: 19% 100%
+    }
+
+    100% {
+      background-position: 82% 0%
+    }
+  }
+
+
+#refresh {
+  font-size: 250%;
+}
+
+#buttonHolder {
+  place-items: center;
+  margin: 10;
+}
+
+.menuButton {
+  border: var(--buttonColor);
+  color: none;
+  background-color: rgba(240, 248, 240, 0.11);
+  font-size: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.social {
+  width: auto;
+  height: 110px;
+}
+
+.socials {
+  display: grid;
+  grid-template-columns: 250px 250px;
+  place-items: start center;
+  margin: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:url(/Assets/loading.gif) center center no-repeat;
+}
+
+
+
+#landing {
+font-size: 750%;
+}
+
+#landing #still, #landing:hover #animated {
+  display: inline;
+}
+
+#landing #animated, #landing:hover #still {
+  display: none;
+}
+
+h1 {
+    font-family: Futura;
+    color: white;
+}
+
+.canvas-container {
+  position: relative;
+  width: 350px;
+  height: 100px;
+  cursor: pointer;
+}
+
+#canvas {
+  position: absolute;
+  background-color: lightgrey;
+  cursor: pointer;
+}
